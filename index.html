@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北捷兒童新樂園競賽與課程研發推進報告</title>
+    <meta name="description" content="北捷兒童新樂園競賽專案、小貓咪盃成果、Unity 遊戲課程、麥塊量子程式與 Roblox 科學實驗課程研發推進報告。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F8EF7',
+                        secondary: '#EAF3FF',
+                        accent: '#F8FBFF',
+                        textMain: '#243447',
+                        textMuted: '#627084',
+                        warm: '#FFB703',
+                        mint: '#52B788',
+                        coral: '#FF7A70'
+                    },
+                    boxShadow: {
+                        soft: '0 18px 45px rgba(79, 142, 247, 0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(79, 142, 247, 0.12), transparent 32rem),
+                radial-gradient(circle at top right, rgba(82, 183, 136, 0.10), transparent 28rem),
+                #F8FBFF;
+            color: #243447;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .pixel-card {
+            background-image: linear-gradient(135deg, rgba(255,255,255,.18) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.18) 50%, rgba(255,255,255,.18) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 76px;
+            height: 5px;
+            margin-top: 10px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #4F8EF7, #52B788, #FFB703);
+        }
+    </style>
+</head>
+<body class="antialiased leading-relaxed">
+
+<header class="bg-primary text-white py-12 px-6 shadow-md pixel-card">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 items-center">
+        <div class="flex-1 space-y-5">
+            <span class="bg-white text-primary px-4 py-1.5 rounded-full text-sm font-bold shadow-sm inline-flex items-center gap-2">🚀 2026.07.05 專案推進報告</span>
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight leading-tight">北捷兒童新樂園競賽與課程研發推進報告</h1>
+            <p class="text-lg md:text-xl opacity-95 max-w-3xl">整合競賽地圖、小貓咪盃成果、Unity 多人連線遊戲課程，以及麥塊量子程式、Roblox 跑酷科學實驗與 SEL 融入程式教學的研發方向。</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+                <span class="bg-white/20 px-3 py-1 rounded-lg text-sm font-medium">Minecraft Education</span>
+                <span class="bg-white/20 px-3 py-1 rounded-lg text-sm font-medium">Unity 3D</span>
+                <span class="bg-white/20 px-3 py-1 rounded-lg text-sm font-medium">Roblox 科學實驗</span>
+                <span class="bg-white/20 px-3 py-1 rounded-lg text-sm font-medium">SEL 社會情緒學習</span>
+            </div>
+        </div>
+        <aside class="w-full lg:w-[360px] bg-white p-6 rounded-3xl shadow-xl text-textMain">
+            <h2 class="text-lg font-bold mb-3 border-b pb-2">本頁重點</h2>
+            <div class="aspect-video bg-secondary rounded-2xl flex items-center justify-center mb-4 overflow-hidden border border-blue-100">
+                <div class="text-center px-4">
+                    <div class="text-5xl mb-3">🎮</div>
+                    <p class="text-sm font-bold text-primary">競賽 × 課程 × 遊戲化學習</p>
+                </div>
+            </div>
+            <p class="text-sm text-textMuted">以可執行、可展示、可教學為核心，將專案進度與後續行動整理成 GitHub Pages 網站。</p>
+        </aside>
+    </div>
+</header>
+
+<nav class="glass-nav sticky top-0 z-50 border-b border-gray-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-3 flex gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide">
+        <a href="#overview" class="text-textMain font-semibold hover:text-primary transition-colors">專案總覽</a>
+        <a href="#children-park" class="text-textMain font-semibold hover:text-primary transition-colors">兒童新樂園</a>
+        <a href="#cat-cup" class="text-textMain font-semibold hover:text-primary transition-colors">小貓咪盃</a>
+        <a href="#unity" class="text-textMain font-semibold hover:text-primary transition-colors">Unity 評估</a>
+        <a href="#research" class="text-textMain font-semibold hover:text-primary transition-colors">課程研發</a>
+        <a href="#next" class="text-textMain font-semibold hover:text-primary transition-colors">後續行動</a>
+    </div>
+</nav>
+
+<main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+
+    <section id="overview" class="scroll-mt-24">
+        <h2 class="section-title text-2xl md:text-3xl font-black mb-6">一、專案總覽</h2>
+        <p class="mb-8 text-lg text-textMuted">本次整理四個推進主題，聚焦競賽成果、遊戲課程開發、跨平台課程可行性與 SEL 融入程式教育。</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-soft transition-shadow border border-gray-100">
+                <div class="text-4xl mb-4">🗺️</div>
+                <h3 class="text-xl font-bold mb-3 text-primary">北捷兒童新樂園</h3>
+                <p class="text-textMuted">以比賽地圖與參觀地圖為核心，建立競賽專案展示與進度彙整。</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-soft transition-shadow border border-gray-100">
+                <div class="text-4xl mb-4">🏆</div>
+                <h3 class="text-xl font-bold mb-3 text-primary">小貓咪盃成果</h3>
+                <p class="text-textMuted">彙整學藝競賽成果，作為後續招生、家長說明與教學展示素材。</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-soft transition-shadow border border-gray-100">
+                <div class="text-4xl mb-4">🕹️</div>
+                <h3 class="text-xl font-bold mb-3 text-primary">Unity 遊戲課程</h3>
+                <p class="text-textMuted">評估 Unity 3D 多人連線課程導入方式，降低學生與老師上手門檻。</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-soft transition-shadow border border-gray-100">
+                <div class="text-4xl mb-4">🧠</div>
+                <h3 class="text-xl font-bold mb-3 text-primary">麥塊 × Roblox × SEL</h3>
+                <p class="text-textMuted">研討量子程式體驗、跑酷科學實驗與社會情緒學習融入程式設計。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="children-park" class="scroll-mt-24">
+        <h2 class="section-title text-2xl md:text-3xl font-black mb-6">二、北捷兒童新樂園競賽專案推進情形</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <article class="bg-white p-7 rounded-3xl shadow-sm border border-gray-100">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <h3 class="text-xl font-bold text-textMain">比賽地圖</h3>
+                    <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-bold">競賽核心</span>
+                </div>
+                <p class="text-textMuted mb-5">以任務挑戰、場景探索與互動機制為主軸，呈現競賽專案的主要玩法與成果展示。</p>
+                <ul class="space-y-3 text-textMuted">
+                    <li class="flex gap-3"><span class="text-primary font-black">01</span><span>規劃地圖主題、任務區域與路線節奏。</span></li>
+                    <li class="flex gap-3"><span class="text-primary font-black">02</span><span>設計玩家操作流程、任務提示與關卡引導。</span></li>
+                    <li class="flex gap-3"><span class="text-primary font-black">03</span><span>保留可測試、可調整、可展示的開發版本。</span></li>
+                </ul>
+            </article>
+            <article class="bg-white p-7 rounded-3xl shadow-sm border border-gray-100">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                    <h3 class="text-xl font-bold text-textMain">參觀地圖</h3>
+                    <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-bold">展示導覽</span>
+                </div>
+                <p class="text-textMuted mb-5">將兒童新樂園場域轉化為可參觀、可介紹、可互動的數位導覽地圖。</p>
+                <ul class="space-y-3 text-textMuted">
+                    <li class="flex gap-3"><span class="text-primary font-black">01</span><span>整理主要設施、路線與導覽節點。</span></li>
+                    <li class="flex gap-3"><span class="text-primary font-black">02</span><span>建立適合家長、評審與學生快速理解的展示動線。</span></li>
+                    <li class="flex gap-3"><span class="text-primary font-black">03</span><span>可搭配截圖、影片或現場操作進行成果發表。</span></li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section id="cat-cup" class="scroll-mt-24">
+        <h2 class="section-title text-2xl md:text-3xl font-black mb-6">三、小貓咪盃學藝競賽成果報告</h2>
+        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-3">
+                <div class="bg-gradient-to-br from-primary to-mint text-white p-7">
+                    <div class="text-5xl mb-4">🐱</div>
+                    <h3 class="text-2xl font-black mb-2">成果彙整</h3>
+                    <p class="opacity-90">將學生作品、競賽表現與學習亮點整理成可對外展示的成果報告。</p>
+                </div>
+                <div class="md:col-span-2 p-7">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-accent p-5 rounded-2xl border border-gray-100">
+                            <h4 class="font-bold text-primary mb-2">作品紀錄</h4>
+                            <p class="text-sm text-textMuted">整理作品截圖、影片、程式設計亮點與學生完成度。</p>
+                        </div>
+                        <div class="bg-accent p-5 rounded-2xl border border-gray-100">
+                            <h4 class="font-bold text-primary mb-2">學習成果</h4>
+                            <p class="text-sm text-textMuted">呈現邏輯思考、問題解決、創意表達與合作能力。</p>
+                        </div>
+                        <div class="bg-accent p-5 rounded-2xl border border-gray-100">
+                            <h4 class="font-bold text-primary mb-2">後續應用</h4>
+                            <p class="text-sm text-textMuted">可延伸為招生簡報、課程說明、社群貼文與成果展內容。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="unity" class="scroll-mt-24">
+        <h2 class="section-title text-2xl md:text-3xl font-black mb-6">四、Unity 遊戲課程開發可行性評估</h2>
+        <div class="space-y-6">
+            <div class="flex flex-col md:flex-row gap-4 bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <div class="md:w-36 font-black text-primary text-xl pt-1">方向 01</div>
+                <div class="flex-1">
+                    <h3 class="text-lg font-bold mb-2">課程需具備多人連線特色</h3>
+                    <p class="text-textMuted mb-3">已討論 Unity 3D 遊戲編輯方向，課程必須具備多人連線元素，才符合現代學生對遊戲互動與合作玩法的期待。</p>
+                    <div class="bg-secondary text-textMain inline-block px-3 py-1.5 rounded-lg text-sm font-medium"><b>判斷重點：</b> RPGMaker 無法多人連線，與目前遊戲方式差異較大。</div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <div class="md:w-36 font-black text-primary text-xl pt-1">方向 02</div>
+                <div class="flex-1">
+                    <h3 class="text-lg font-bold mb-2">以半成品匯入降低製作門檻</h3>
+                    <p class="text-textMuted mb-3">Unity 多人連線製作難度較高，因此可先由老師準備半成品架構，再讓學生進行匯入、調整與延伸創作。</p>
+                    <div class="bg-secondary text-textMain inline-block px-3 py-1.5 rounded-lg text-sm font-medium"><b>執行方式：</b> 先完成可運作模板，再設計學生可操作的編輯任務。</div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <div class="md:w-36 font-black text-primary text-xl pt-1">方向 03</div>
+                <div class="flex-1">
+                    <h3 class="text-lg font-bold mb-2">加入編審與測試流程</h3>
+                    <p class="text-textMuted mb-3">課程開發時將加入編審，協助測試遊戲是否能正常執行，並從實際教學經驗調整難度。</p>
+                    <div class="bg-secondary text-textMain inline-block px-3 py-1.5 rounded-lg text-sm font-medium"><b>目標：</b> 讓學生與老師更容易上手，確保課程推動順利。</div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-6 bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+                <h3 class="font-bold text-lg mb-1">Unity 參考文件</h3>
+                <p class="text-textMuted">可將討論紀錄、課程草案與測試回饋集中整理於文件中。</p>
+            </div>
+            <a href="https://docs.google.com/document/d/14kjwmj__xw_feMWgMiVdIv9B463pcVr5BrBWc6Ll0l0/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-blue-600 text-white px-5 py-3 rounded-full font-bold transition-colors text-center">開啟 Google 文件 →</a>
+        </div>
+    </section>
+
+    <section id="research" class="scroll-mt-24">
+        <h2 class="section-title text-2xl md:text-3xl font-black mb-6">五、麥塊量子程式與 Roblox 跑酷科學實驗課程研發</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-7 rounded-3xl shadow-sm border border-gray-100">
+                <h3 class="text-xl font-bold mb-3 text-primary">⚛️ 麥塊量子程式體驗</h3>
+                <p class="text-textMuted mb-5">以 Minecraft Education 作為具象化場景，將抽象的量子概念轉成可以操作、觀察與討論的任務活動。</p>
+                <div class="space-y-3">
+                    <div class="bg-accent rounded-2xl p-4 border border-gray-100"><b>適合方向：</b> 量子概念入門、狀態變化、機率與觀察任務。</div>
+                    <div class="bg-accent rounded-2xl p-4 border border-gray-100"><b>課程特色：</b> 用遊戲任務降低抽象科學概念的理解門檻。</div>
+                </div>
+            </div>
+            <div class="bg-white p-7 rounded-3xl shadow-sm border border-gray-100">
+                <h3 class="text-xl font-bold mb-3 text-primary">🏃 Roblox 跑酷科學實驗</h3>
+                <p class="text-textMuted mb-5">透過跑酷關卡讓學生觀察速度、重力、摩擦力、彈跳與路徑設計，將科學概念融入遊戲關卡。</p>
+                <div class="space-y-3">
+                    <div class="bg-accent rounded-2xl p-4 border border-gray-100"><b>適合方向：</b> 物理實驗、變因控制、關卡測試與數據紀錄。</div>
+                    <div class="bg-accent rounded-2xl p-4 border border-gray-100"><b>課程特色：</b> 讓學生在設計遊戲的過程中理解科學探究。</div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-6 bg-gradient-to-r from-mint to-primary text-white rounded-3xl p-7 shadow-soft">
+            <h3 class="text-2xl font-black mb-3">SEL 融入程式教學</h3>
+            <p class="text-white/90 mb-5">SEL（Social and Emotional Learning，社會情緒學習）可融入合作任務、同儕回饋、失敗修正與成果發表，讓學生不只完成程式作品，也能練習溝通、合作、情緒調節與自我反思。</p>
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-sm font-bold">
+                <span class="bg-white/20 rounded-xl px-4 py-3">自我覺察</span>
+                <span class="bg-white/20 rounded-xl px-4 py-3">合作溝通</span>
+                <span class="bg-white/20 rounded-xl px-4 py-3">問題解決</span>
+                <span class="bg-white/20 rounded-xl px-4 py-3">成果反思</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="next" class="scroll-mt-24">
+        <h2 class="section-title text-2xl md:text-3xl font-black mb-6">六、後續行動建議</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <h3 class="text-lg font-bold mb-3 text-textMain">短期任務</h3>
+                <ul class="space-y-3 text-textMuted">
+                    <li>✅ 補齊兒童新樂園比賽地圖與參觀地圖的截圖或展示影片。</li>
+                    <li>✅ 整理小貓咪盃成果資料，建立作品清單與亮點摘要。</li>
+                    <li>✅ 確認 Unity 多人連線模板是否能穩定匯入與執行。</li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <h3 class="text-lg font-bold mb-3 text-textMain">中期任務</h3>
+                <ul class="space-y-3 text-textMuted">
+                    <li>🔄 完成 Unity 課程試教腳本與教師操作手冊。</li>
+                    <li>🔄 設計麥塊量子程式與 Roblox 科學實驗的課程原型。</li>
+                    <li>🔄 將 SEL 任務單、學生反思單與成果發表流程納入教材。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="bg-textMain text-white py-10 mt-12 text-center">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-xl font-bold mb-3">翊華兒童程式｜專案推進整理</h2>
+        <p class="text-sm opacity-70 mb-6">本頁用於 GitHub Pages 專案報告展示，可持續補充圖片、影片與課程附件。</p>
+        <a href="#" class="bg-white/10 hover:bg-white/20 transition-colors px-4 py-2 rounded-full text-sm">↑ 回到最上方</a>
+    </div>
+</footer>
+
+</body>
+</html>

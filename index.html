@@ -70,28 +70,22 @@
 
         .hero {
             position: relative;
-            padding: 34px 0 20px;
+            padding: 18px 0 6px;
         }
 
         .hero-card {
             position: relative;
-            overflow: hidden;
+            display: inline-block;
+            width: auto;
             background: var(--paper);
-            border: 4px solid var(--ink);
-            border-radius: 34px;
-            box-shadow: 12px 12px 0 var(--ink);
-            padding: clamp(28px, 5vw, 56px);
+            border: 3px solid var(--ink);
+            border-radius: 18px;
+            box-shadow: 5px 5px 0 var(--ink);
+            padding: 10px 16px;
         }
 
         .hero-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background:
-                linear-gradient(90deg, transparent 0 64%, rgba(255,212,0,.55) 64% 100%),
-                repeating-linear-gradient(45deg, rgba(0,0,0,.06) 0 10px, transparent 10px 20px);
-            opacity: .75;
+            display: none;
         }
 
         .hero-content {
@@ -100,41 +94,30 @@
         }
 
         .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 16px;
-            border: 3px solid var(--ink);
-            border-radius: 999px;
-            background: var(--sun);
-            font-weight: 900;
-            box-shadow: 5px 5px 0 var(--ink);
+            display: none;
         }
 
         .hero-title {
-            margin: 22px 0 0;
-            font-size: clamp(2.25rem, 7vw, 5.5rem);
-            line-height: 1.02;
+            margin: 0;
+            font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+            line-height: 1.25;
             font-weight: 900;
-            letter-spacing: -.04em;
+            letter-spacing: .02em;
+            white-space: nowrap;
         }
 
         .hero-title span {
             display: inline-block;
-            padding: 0 .08em;
-            background: linear-gradient(transparent 60%, var(--sun) 60%);
+            padding: 0;
+            background: transparent;
         }
 
         .hero-note {
-            margin-top: 20px;
-            max-width: 760px;
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            line-height: 1.9;
-            font-weight: 700;
+            display: none;
         }
 
         main {
-            padding: 54px 0 80px;
+            padding: 26px 0 80px;
         }
 
         .section-block {
@@ -459,8 +442,13 @@
         @media (max-width: 520px) {
             .hero-card,
             .section-block {
-                border-radius: 24px;
-                box-shadow: 8px 8px 0 var(--ink);
+                border-radius: 20px;
+                box-shadow: 6px 6px 0 var(--ink);
+            }
+
+            .hero-title {
+                white-space: normal;
+                font-size: 1rem;
             }
 
             .section-head {
@@ -480,9 +468,7 @@
     <div class="site-shell">
         <div class="hero-card">
             <div class="hero-content">
-                <div class="eyebrow">🚀 2026.07.05</div>
-                <h1 class="hero-title"><span>種子教師會議</span></h1>
-                <p class="hero-note">以專案推進、課程研發與教學應用為核心，整理後續可執行的重點方向。</p>
+                <h1 class="hero-title"><span>2026.07.05 種子教師會議</span></h1>
             </div>
         </div>
     </div>

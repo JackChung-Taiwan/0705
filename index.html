@@ -11,16 +11,16 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#FACC15',
-                        primaryDark: '#CA8A04',
-                        secondary: '#FEF9C3',
-                        accent: '#FFFFFF',
-                        textMain: '#111827',
-                        textMuted: '#4B5563',
-                        lineSoft: '#FDE68A'
+                        primary: '#FFD400',
+                        primaryDark: '#000000',
+                        secondary: '#FFF4A3',
+                        accent: '#FFF9D6',
+                        textMain: '#000000',
+                        textMuted: '#000000',
+                        lineSoft: '#EAB308'
                     },
                     boxShadow: {
-                        soft: '0 18px 45px rgba(202, 138, 4, 0.18)'
+                        soft: '0 18px 45px rgba(0, 0, 0, 0.16)'
                     }
                 }
             }
@@ -28,33 +28,64 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+        :root {
+            --main-yellow: #FFD400;
+            --light-yellow: #FFF4A3;
+            --pale-yellow: #FFF9D6;
+            --black: #000000;
+        }
+        * { color: var(--black) !important; }
         body {
             font-family: 'Noto Sans TC', sans-serif;
             background:
-                radial-gradient(circle at top left, rgba(250, 204, 21, 0.28), transparent 34rem),
-                radial-gradient(circle at bottom right, rgba(253, 230, 138, 0.35), transparent 32rem),
-                #FFFFFF;
-            color: #111827;
+                radial-gradient(circle at top left, rgba(255, 212, 0, 0.55), transparent 34rem),
+                radial-gradient(circle at bottom right, rgba(255, 244, 163, 0.88), transparent 32rem),
+                linear-gradient(180deg, #FFF9D6 0%, #FFFFFF 42%, #FFF4A3 100%);
+            color: var(--black) !important;
+        }
+        header {
+            background-color: var(--main-yellow) !important;
+            border-bottom: 6px solid var(--black) !important;
         }
         .glass-nav {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 244, 163, 0.94);
             backdrop-filter: blur(12px);
         }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         .pattern-card {
-            background-image: linear-gradient(135deg, rgba(255,255,255,.22) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.22) 50%, rgba(255,255,255,.22) 75%, transparent 75%, transparent);
+            background-image: linear-gradient(135deg, rgba(255,255,255,.38) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.38) 50%, rgba(255,255,255,.38) 75%, transparent 75%, transparent);
             background-size: 22px 22px;
         }
         .section-title::after {
             content: '';
             display: block;
             width: 82px;
-            height: 5px;
+            height: 6px;
             margin-top: 10px;
             border-radius: 999px;
-            background: linear-gradient(90deg, #FACC15, #CA8A04);
+            background: var(--main-yellow);
+            border: 1px solid var(--black);
         }
+        .bg-white {
+            background-color: #FFFFFF !important;
+        }
+        .bg-secondary, .bg-accent {
+            background-color: var(--light-yellow) !important;
+        }
+        .bg-primary {
+            background-color: var(--main-yellow) !important;
+        }
+        .border-lineSoft, .border-primaryDark\/20, .border-primaryDark\/30 {
+            border-color: var(--black) !important;
+        }
+        .shadow-sm, .shadow-md, .shadow-soft {
+            box-shadow: 0 10px 26px rgba(0,0,0,.12) !important;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        iframe { color-scheme: light; }
     </style>
 </head>
 <body class="antialiased leading-relaxed">
@@ -236,11 +267,11 @@
 
 </main>
 
-<footer class="bg-textMain text-white py-10 mt-12 text-center">
+<footer class="bg-primary text-textMain py-10 mt-12 text-center border-t-4 border-primaryDark">
     <div class="max-w-6xl mx-auto px-6">
         <h2 class="text-xl font-black mb-3">專案推進整理</h2>
-        <p class="text-sm opacity-75 mb-6"></p>
-        <a href="#" class="bg-white/10 hover:bg-white/20 transition-colors px-4 py-2 rounded-full text-sm">↑ 回到最上方</a>
+        <p class="text-sm mb-6">本頁用於 GitHub Pages 專案報告展示，可持續補充圖片、影片與課程附件。</p>
+        <a href="#" class="bg-white hover:bg-secondary transition-colors px-4 py-2 rounded-full text-sm font-black border border-primaryDark/20">↑ 回到最上方</a>
     </div>
 </footer>
 

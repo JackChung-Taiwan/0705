@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh-TW" class="scroll-smooth">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026.07.05 種子教師會議</title>
+    <meta name="description" content="2026.07.05 種子教師會議重點整理。">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#FFD400',
-                        secondary: '#FFEA61',
-                        accent: '#FFD400',
-                        textMain: '#000000',
-                        textMuted: '#000000',
-                        warm: '#FFD400',
-                        mint: '#FFD400',
-                        coral: '#FFD400'
+                        ink: '#000000',
+                        sun: '#FFD400',
+                        card: '#FFF6A6',
+                        paper: '#FFFFFF',
+                        orange: '#FF9F1C'
                     },
                     boxShadow: {
-                        soft: '0 18px 45px rgba(0, 0, 0, 0.15)'
+                        block: '10px 10px 0 #000000',
+                        blockSm: '6px 6px 0 #000000'
                     }
                 }
             }
@@ -27,266 +29,608 @@
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
 
         :root {
-            --main-yellow: #FFD400;
-            --card-yellow: #FFEA61;
-            --soft-yellow: #FFF4A3;
-            --black: #000000;
-            --white: #FFFFFF;
+            --sun: #FFD400;
+            --sun-soft: #FFF6A6;
+            --paper: #FFFFFF;
+            --ink: #000000;
+            --orange: #FF9F1C;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         html,
         body {
-            background: var(--main-yellow) !important;
-            color: var(--black) !important;
+            margin: 0;
+            min-height: 100%;
+            color: var(--ink);
+            font-family: 'Noto Sans TC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                radial-gradient(circle at 12% 10%, rgba(255,255,255,.75) 0 90px, transparent 92px),
+                radial-gradient(circle at 88% 18%, rgba(255,159,28,.35) 0 120px, transparent 123px),
+                radial-gradient(circle at 8% 86%, rgba(255,255,255,.45) 0 120px, transparent 123px),
+                linear-gradient(135deg, rgba(0,0,0,.08) 25%, transparent 25%) 0 0 / 28px 28px,
+                var(--sun);
         }
 
         body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-image: none !important;
-        }
-
-        *,
-        *::before,
-        *::after {
-            color: var(--black) !important;
-            border-color: var(--black) !important;
-        }
-
-        header,
-        footer,
-        nav,
-        .glass-nav,
-        .bg-primary {
-            background: var(--main-yellow) !important;
-            color: var(--black) !important;
-        }
-
-        main,
-        section {
-            background: transparent !important;
-        }
-
-        article,
-        .bg-white,
-        .bg-secondary,
-        .bg-accent,
-        .rounded-3xl,
-        .rounded-2xl,
-        .rounded-xl,
-        .rounded-lg,
-        .rounded-full {
-            background-color: var(--card-yellow) !important;
-            color: var(--black) !important;
-            border: 2px solid var(--black) !important;
-        }
-
-        .glass-nav {
-            backdrop-filter: blur(12px);
-        }
-
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .pattern-card {
-            background-color: var(--main-yellow) !important;
-            background-image:
-                linear-gradient(135deg, rgba(0,0,0,.08) 25%, transparent 25%, transparent 50%, rgba(0,0,0,.08) 50%, rgba(0,0,0,.08) 75%, transparent 75%, transparent) !important;
-            background-size: 22px 22px;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 82px;
-            height: 6px;
-            margin-top: 10px;
-            border-radius: 999px;
-            background: var(--black) !important;
-            border: 1px solid var(--black) !important;
+            overflow-x: hidden;
         }
 
         a,
-        a:visited,
-        a:hover,
-        a:active {
-            color: var(--black) !important;
+        a:visited {
+            color: var(--ink);
         }
 
-        a:hover {
-            text-decoration: underline;
+        .site-shell {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
         }
 
-        .shadow-sm,
-        .shadow-md,
-        .shadow-soft,
-        .hover\:shadow-soft:hover {
-            box-shadow: 8px 8px 0 rgba(0, 0, 0, 1) !important;
+        .hero {
+            position: relative;
+            padding: 34px 0 20px;
         }
 
-        iframe {
-            border: 2px solid var(--black) !important;
-            background: var(--black) !important;
-            color-scheme: light;
+        .hero-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--paper);
+            border: 4px solid var(--ink);
+            border-radius: 34px;
+            box-shadow: 12px 12px 0 var(--ink);
+            padding: clamp(28px, 5vw, 56px);
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(90deg, transparent 0 64%, rgba(255,212,0,.55) 64% 100%),
+                repeating-linear-gradient(45deg, rgba(0,0,0,.06) 0 10px, transparent 10px 20px);
+            opacity: .75;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 16px;
+            border: 3px solid var(--ink);
+            border-radius: 999px;
+            background: var(--sun);
+            font-weight: 900;
+            box-shadow: 5px 5px 0 var(--ink);
+        }
+
+        .hero-title {
+            margin: 22px 0 0;
+            font-size: clamp(2.25rem, 7vw, 5.5rem);
+            line-height: 1.02;
+            font-weight: 900;
+            letter-spacing: -.04em;
+        }
+
+        .hero-title span {
+            display: inline-block;
+            padding: 0 .08em;
+            background: linear-gradient(transparent 60%, var(--sun) 60%);
+        }
+
+        .hero-note {
+            margin-top: 20px;
+            max-width: 760px;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            line-height: 1.9;
+            font-weight: 700;
+        }
+
+        main {
+            padding: 54px 0 80px;
+        }
+
+        .section-block {
+            position: relative;
+            margin-bottom: 66px;
+            background: rgba(255, 255, 255, .72);
+            border: 4px solid var(--ink);
+            border-radius: 32px;
+            box-shadow: 12px 12px 0 var(--ink);
+            padding: clamp(22px, 4vw, 38px);
+            backdrop-filter: blur(4px);
+        }
+
+        .section-block::after {
+            content: '';
+            position: absolute;
+            width: 72px;
+            height: 72px;
+            right: 22px;
+            top: -24px;
+            border: 4px solid var(--ink);
+            border-radius: 20px;
+            background: var(--sun);
+            transform: rotate(8deg);
+            z-index: -1;
+        }
+
+        .section-head {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 26px;
+        }
+
+        .section-number {
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            width: 58px;
+            height: 58px;
+            border: 3px solid var(--ink);
+            border-radius: 18px;
+            background: var(--sun);
+            box-shadow: 5px 5px 0 var(--ink);
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .section-title {
+            margin: 0;
+            font-size: clamp(1.6rem, 3.4vw, 2.35rem);
+            line-height: 1.28;
+            font-weight: 900;
+            letter-spacing: -.02em;
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 22px;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid.two {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .feature-card,
+        .step-card,
+        .mini-card,
+        .video-card {
+            background: var(--paper);
+            border: 3px solid var(--ink);
+            border-radius: 26px;
+            box-shadow: 7px 7px 0 var(--ink);
+            padding: 24px;
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .feature-card:hover,
+        .step-card:hover,
+        .mini-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0 var(--ink);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .card-title {
+            margin: 0;
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            border: 2px solid var(--ink);
+            border-radius: 999px;
+            background: var(--sun-soft);
+            padding: 6px 12px;
+            font-size: .88rem;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .feature-card p,
+        .step-card p,
+        .mini-card p {
+            margin: 0 0 16px;
+            line-height: 1.85;
+            font-weight: 650;
+        }
+
+        .clean-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .clean-list li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            line-height: 1.7;
+            font-weight: 700;
+        }
+
+        .num-chip {
+            flex: 0 0 auto;
+            display: inline-grid;
+            place-items: center;
+            min-width: 34px;
+            height: 34px;
+            padding: 0 8px;
+            border: 2px solid var(--ink);
+            border-radius: 10px;
+            background: var(--sun);
+            font-size: .9rem;
+            font-weight: 900;
+        }
+
+        .step-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .step-card {
+            display: grid;
+            gap: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .step-card {
+                grid-template-columns: 132px 1fr;
+                align-items: start;
+            }
+        }
+
+        .direction-label {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 48px;
+            border: 3px solid var(--ink);
+            border-radius: 16px;
+            background: var(--sun);
+            box-shadow: 5px 5px 0 var(--ink);
+            font-size: 1.1rem;
+            font-weight: 900;
+        }
+
+        .callout {
+            display: inline-block;
+            margin-top: 4px;
+            border: 2px solid var(--ink);
+            border-radius: 14px;
+            background: var(--sun-soft);
+            padding: 10px 13px;
+            line-height: 1.7;
+            font-weight: 800;
+        }
+
+        .doc-card {
+            margin-top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            justify-content: space-between;
+            align-items: stretch;
+            background: var(--paper);
+            border: 3px solid var(--ink);
+            border-radius: 26px;
+            box-shadow: 7px 7px 0 var(--ink);
+            padding: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .doc-card {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .button-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50px;
+            border: 3px solid var(--ink);
+            border-radius: 999px;
+            background: var(--sun);
+            padding: 12px 20px;
+            font-weight: 900;
+            text-decoration: none;
+            box-shadow: 5px 5px 0 var(--ink);
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .button-link:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 var(--ink);
+            text-decoration: none;
+        }
+
+        .sel-panel {
+            margin-top: 24px;
+            background:
+                linear-gradient(135deg, rgba(0,0,0,.06) 25%, transparent 25%) 0 0 / 24px 24px,
+                var(--sun);
+            border: 4px solid var(--ink);
+            border-radius: 30px;
+            box-shadow: 10px 10px 0 var(--ink);
+            padding: clamp(22px, 4vw, 34px);
+        }
+
+        .sel-panel h3 {
+            margin: 0 0 14px;
+            font-size: clamp(1.55rem, 3vw, 2.15rem);
+            font-weight: 900;
+        }
+
+        .sel-panel p {
+            line-height: 1.9;
+            font-weight: 750;
         }
 
         .sel-emphasis {
             display: block;
-            background: var(--white) !important;
-            border: 4px solid var(--black) !important;
+            background: var(--paper);
+            border: 4px solid var(--ink);
             border-radius: 24px;
             padding: 20px 24px;
-            margin: 0 0 24px 0;
-            font-style: italic !important;
-            font-weight: 900 !important;
-            font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+            margin: 22px 0 26px;
+            font-style: italic;
+            font-weight: 900;
+            font-size: clamp(1.12rem, 2.2vw, 1.52rem);
             line-height: 1.85;
             letter-spacing: 0.03em;
-            box-shadow: 8px 8px 0 var(--black) !important;
+            box-shadow: 8px 8px 0 var(--ink);
+        }
+
+        .video-card {
+            margin-bottom: 22px;
+            background: var(--paper);
+        }
+
+        .video-wrap {
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border: 3px solid var(--ink);
+            border-radius: 20px;
+            background: var(--ink);
+        }
+
+        .video-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .skill-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        .skill-grid span {
+            display: grid;
+            place-items: center;
+            min-height: 58px;
+            background: var(--paper);
+            border: 3px solid var(--ink);
+            border-radius: 18px;
+            font-weight: 900;
+            box-shadow: 5px 5px 0 var(--ink);
+            text-align: center;
+        }
+
+        footer {
+            padding: 38px 0 48px;
+        }
+
+        .back-top {
+            background: var(--paper);
+        }
+
+        @media (max-width: 520px) {
+            .hero-card,
+            .section-block {
+                border-radius: 24px;
+                box-shadow: 8px 8px 0 var(--ink);
+            }
+
+            .section-head {
+                flex-direction: column;
+            }
+
+            .card-top {
+                align-items: flex-start;
+                flex-direction: column;
+            }
         }
     </style>
 </head>
-<body class="antialiased leading-relaxed">
+<body>
 
-<header class="bg-primary text-textMain py-8 px-6 pattern-card border-b-4 border-primaryDark">
-    <div class="max-w-6xl mx-auto">
-        <span class="bg-white text-textMain px-4 py-1.5 rounded-full text-sm font-black shadow-sm inline-flex items-center gap-2 border border-primaryDark/20">🚀 2026.07.05 種子教師會議</span>
+<header class="hero">
+    <div class="site-shell">
+        <div class="hero-card">
+            <div class="hero-content">
+                <div class="eyebrow">🚀 2026.07.05</div>
+                <h1 class="hero-title"><span>種子教師會議</span></h1>
+                <p class="hero-note">以專案推進、課程研發與教學應用為核心，整理後續可執行的重點方向。</p>
+            </div>
+        </div>
     </div>
 </header>
 
-<main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+<main class="site-shell">
 
-    <section id="children-park" class="scroll-mt-24">
-        <h2 class="section-title text-2xl md:text-3xl font-black mb-6">一、北捷兒童新樂園競賽專案推進情形</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <article class="bg-white p-7 rounded-3xl shadow-sm border border-lineSoft">
-                <div class="flex items-center justify-between gap-4 mb-4">
-                    <h3 class="text-xl font-black text-textMain">比賽地圖</h3>
-                    <span class="bg-secondary text-textMain px-3 py-1 rounded-full text-sm font-black border border-lineSoft">競賽核心</span>
+    <section id="children-park" class="section-block">
+        <div class="section-head">
+            <div class="section-number">01</div>
+            <h2 class="section-title">北捷兒童新樂園競賽專案推進情形</h2>
+        </div>
+        <div class="card-grid two">
+            <article class="feature-card">
+                <div class="card-top">
+                    <h3 class="card-title">比賽地圖</h3>
+                    <span class="tag">競賽核心</span>
                 </div>
-                <p class="text-textMuted mb-5">以任務挑戰、場景探索與互動機制為主軸，呈現競賽專案的主要玩法與成果展示。</p>
-                <ul class="space-y-3 text-textMuted">
-                    <li class="flex gap-3"><span class="text-primaryDark font-black">01</span><span>規劃地圖主題、任務區域與路線節奏。</span></li>
-                    <li class="flex gap-3"><span class="text-primaryDark font-black">02</span><span>設計玩家操作流程、任務提示與關卡引導。</span></li>
-                    <li class="flex gap-3"><span class="text-primaryDark font-black">03</span><span>保留可測試、可調整、可展示的開發版本。</span></li>
+                <p>以任務挑戰、場景探索與互動機制為主軸，呈現競賽專案的主要玩法與成果展示。</p>
+                <ul class="clean-list">
+                    <li><span class="num-chip">01</span><span>規劃地圖主題、任務區域與路線節奏。</span></li>
+                    <li><span class="num-chip">02</span><span>設計玩家操作流程、任務提示與關卡引導。</span></li>
+                    <li><span class="num-chip">03</span><span>保留可測試、可調整、可展示的開發版本。</span></li>
                 </ul>
             </article>
-            <article class="bg-white p-7 rounded-3xl shadow-sm border border-lineSoft">
-                <div class="flex items-center justify-between gap-4 mb-4">
-                    <h3 class="text-xl font-black text-textMain">參觀地圖</h3>
-                    <span class="bg-secondary text-textMain px-3 py-1 rounded-full text-sm font-black border border-lineSoft">展示導覽</span>
+            <article class="feature-card">
+                <div class="card-top">
+                    <h3 class="card-title">參觀地圖</h3>
+                    <span class="tag">展示導覽</span>
                 </div>
-                <p class="text-textMuted mb-5">將兒童新樂園場域轉化為可參觀、可介紹、可互動的數位導覽地圖。</p>
-                <ul class="space-y-3 text-textMuted">
-                    <li class="flex gap-3"><span class="text-primaryDark font-black">01</span><span>整理主要設施、路線與導覽節點。</span></li>
-                    <li class="flex gap-3"><span class="text-primaryDark font-black">02</span><span>建立適合家長、評審與學生快速理解的展示動線。</span></li>
-                    <li class="flex gap-3"><span class="text-primaryDark font-black">03</span><span>可搭配截圖、影片或現場操作進行成果發表。</span></li>
+                <p>將兒童新樂園場域轉化為可參觀、可介紹、可互動的數位導覽地圖。</p>
+                <ul class="clean-list">
+                    <li><span class="num-chip">01</span><span>整理主要設施、路線與導覽節點。</span></li>
+                    <li><span class="num-chip">02</span><span>建立適合家長、評審與學生快速理解的展示動線。</span></li>
+                    <li><span class="num-chip">03</span><span>可搭配截圖、影片或現場操作進行成果發表。</span></li>
                 </ul>
             </article>
         </div>
     </section>
 
-    <section id="unity" class="scroll-mt-24">
-        <h2 class="section-title text-2xl md:text-3xl font-black mb-6">二、Unity 遊戲課程開發可行性評估</h2>
-        <div class="space-y-6">
-            <div class="flex flex-col md:flex-row gap-4 bg-white p-6 rounded-3xl shadow-sm border border-lineSoft">
-                <div class="md:w-36 font-black text-primaryDark text-xl pt-1">方向 01</div>
-                <div class="flex-1">
-                    <h3 class="text-lg font-black mb-2">課程需具備多人連線特色</h3>
-                    <p class="text-textMuted mb-3">已討論 Unity 3D 遊戲編輯方向，課程必須具備多人連線元素，才符合現代學生對遊戲互動與合作玩法的期待。</p>
-                    <div class="bg-secondary text-textMain inline-block px-3 py-1.5 rounded-lg text-sm font-medium border border-lineSoft"><b>判斷重點：</b> RPGMaker 無法多人連線，與目前遊戲方式差異較大。</div>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row gap-4 bg-white p-6 rounded-3xl shadow-sm border border-lineSoft">
-                <div class="md:w-36 font-black text-primaryDark text-xl pt-1">方向 02</div>
-                <div class="flex-1">
-                    <h3 class="text-lg font-black mb-2">以半成品匯入降低製作門檻</h3>
-                    <p class="text-textMuted mb-3">Unity 多人連線製作難度較高，因此可先由老師準備半成品架構，再讓學生進行匯入、調整與延伸創作。</p>
-                    <div class="bg-secondary text-textMain inline-block px-3 py-1.5 rounded-lg text-sm font-medium border border-lineSoft"><b>執行方式：</b> 先完成可運作模板，再設計學生可操作的編輯任務。</div>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row gap-4 bg-white p-6 rounded-3xl shadow-sm border border-lineSoft">
-                <div class="md:w-36 font-black text-primaryDark text-xl pt-1">方向 03</div>
-                <div class="flex-1">
-                    <h3 class="text-lg font-black mb-2">加入編審與測試流程</h3>
-                    <p class="text-textMuted mb-3">課程開發時將加入編審，協助測試遊戲是否能正常執行，並從實際教學經驗調整難度。</p>
-                    <div class="bg-secondary text-textMain inline-block px-3 py-1.5 rounded-lg text-sm font-medium border border-lineSoft"><b>目標：</b> 讓學生與老師更容易上手，確保課程推動順利。</div>
-                </div>
-            </div>
+    <section id="unity" class="section-block">
+        <div class="section-head">
+            <div class="section-number">02</div>
+            <h2 class="section-title">Unity 遊戲課程開發可行性評估</h2>
         </div>
-        <div class="mt-6 bg-white p-6 rounded-3xl shadow-sm border border-lineSoft flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="step-list">
+            <article class="step-card">
+                <div class="direction-label">方向 01</div>
+                <div>
+                    <h3 class="card-title">課程需具備多人連線特色</h3>
+                    <p>已討論 Unity 3D 遊戲編輯方向，課程必須具備多人連線元素，才符合現代學生對遊戲互動與合作玩法的期待。</p>
+                    <div class="callout"><b>判斷重點：</b> RPGMaker 無法多人連線，與目前遊戲方式差異較大。</div>
+                </div>
+            </article>
+            <article class="step-card">
+                <div class="direction-label">方向 02</div>
+                <div>
+                    <h3 class="card-title">以半成品匯入降低製作門檻</h3>
+                    <p>Unity 多人連線製作難度較高，因此可先由老師準備半成品架構，再讓學生進行匯入、調整與延伸創作。</p>
+                    <div class="callout"><b>執行方式：</b> 先完成可運作模板，再設計學生可操作的編輯任務。</div>
+                </div>
+            </article>
+            <article class="step-card">
+                <div class="direction-label">方向 03</div>
+                <div>
+                    <h3 class="card-title">加入編審與測試流程</h3>
+                    <p>課程開發時將加入編審，協助測試遊戲是否能正常執行，並從實際教學經驗調整難度。</p>
+                    <div class="callout"><b>目標：</b> 讓學生與老師更容易上手，確保課程推動順利。</div>
+                </div>
+            </article>
+        </div>
+        <div class="doc-card">
             <div>
-                <h3 class="font-black text-lg mb-1">Unity 參考文件</h3>
-                <p class="text-textMuted">可將討論紀錄、課程草案與測試回饋集中整理於文件中。</p>
+                <h3 class="card-title">Unity 參考文件</h3>
+                <p>可將討論紀錄、課程草案與測試回饋集中整理於文件中。</p>
             </div>
-            <a href="https://docs.google.com/document/d/14kjwmj__xw_feMWgMiVdIv9B463pcVr5BrBWc6Ll0l0/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primaryDark hover:text-white text-textMain px-5 py-3 rounded-full font-black transition-colors text-center border border-primaryDark/30">開啟 Google 文件 →</a>
+            <a href="https://docs.google.com/document/d/14kjwmj__xw_feMWgMiVdIv9B463pcVr5BrBWc6Ll0l0/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="button-link">開啟 Google 文件 →</a>
         </div>
     </section>
 
-    <section id="research" class="scroll-mt-24">
-        <h2 class="section-title text-2xl md:text-3xl font-black mb-6">三、麥塊量子程式與 Roblox 跑酷科學實驗課程研發</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white p-7 rounded-3xl shadow-sm border border-lineSoft">
-                <h3 class="text-xl font-black mb-3 text-primaryDark">⚛️ 麥塊量子程式體驗</h3>
-                <p class="text-textMuted mb-5">以 Minecraft Education 作為具象化場景，將抽象的量子概念轉成可以操作、觀察與討論的任務活動。</p>
-                <div class="space-y-3">
-                    <div class="bg-secondary rounded-2xl p-4 border border-lineSoft"><b>適合方向：</b> 量子概念入門、狀態變化、機率與觀察任務。</div>
-                    <div class="bg-secondary rounded-2xl p-4 border border-lineSoft"><b>課程特色：</b> 用遊戲任務降低抽象科學概念的理解門檻。</div>
-                </div>
-            </div>
-            <div class="bg-white p-7 rounded-3xl shadow-sm border border-lineSoft">
-                <h3 class="text-xl font-black mb-3 text-primaryDark">🏃 Roblox 跑酷科學實驗</h3>
-                <p class="text-textMuted mb-5">透過跑酷關卡讓學生觀察速度、重力、摩擦力、彈跳與路徑設計，將科學概念融入遊戲關卡。</p>
-                <div class="space-y-3">
-                    <div class="bg-secondary rounded-2xl p-4 border border-lineSoft"><b>適合方向：</b> 物理實驗、變因控制、關卡測試與數據紀錄。</div>
-                    <div class="bg-secondary rounded-2xl p-4 border border-lineSoft"><b>課程特色：</b> 讓學生在設計遊戲的過程中理解科學探究。</div>
-                </div>
-            </div>
+    <section id="research" class="section-block">
+        <div class="section-head">
+            <div class="section-number">03</div>
+            <h2 class="section-title">麥塊量子程式與 Roblox 跑酷科學實驗課程研發</h2>
         </div>
-        <div class="mt-6 bg-primary text-textMain rounded-3xl p-7 shadow-soft border border-primaryDark/30">
-            <h3 class="text-2xl font-black mb-3">SEL 融入程式教學</h3>
-            <p class="text-textMain/85 mb-5">SEL（Social and Emotional Learning，社會情緒學習）可融入合作任務、同儕回饋、失敗修正與成果發表，讓學生不只完成程式作品，也能練習溝通、合作、情緒調節與自我反思。</p>
+        <div class="card-grid two">
+            <article class="mini-card">
+                <h3 class="card-title">⚛️ 麥塊量子程式體驗</h3>
+                <p>以 Minecraft Education 作為具象化場景，將抽象的量子概念轉成可以操作、觀察與討論的任務活動。</p>
+                <div class="callout"><b>適合方向：</b> 量子概念入門、狀態變化、機率與觀察任務。</div>
+                <div class="callout"><b>課程特色：</b> 用遊戲任務降低抽象科學概念的理解門檻。</div>
+            </article>
+            <article class="mini-card">
+                <h3 class="card-title">🏃 Roblox 跑酷科學實驗</h3>
+                <p>透過跑酷關卡讓學生觀察速度、重力、摩擦力、彈跳與路徑設計，將科學概念融入遊戲關卡。</p>
+                <div class="callout"><b>適合方向：</b> 物理實驗、變因控制、關卡測試與數據紀錄。</div>
+                <div class="callout"><b>課程特色：</b> 讓學生在設計遊戲的過程中理解科學探究。</div>
+            </article>
+        </div>
+
+        <div class="sel-panel">
+            <h3>SEL 融入程式教學</h3>
+            <p>SEL（Social and Emotional Learning，社會情緒學習）可融入合作任務、同儕回饋、失敗修正與成果發表，讓學生不只完成程式作品，也能練習溝通、合作、情緒調節與自我反思。</p>
             <p class="sel-emphasis">本課程在科技實作與專案解題的過程中，融入社會情緒學習（SEL）指標，全方位培養學生面對未來挑戰的韌性與協作軟實力。</p>
-            <div class="bg-white rounded-3xl p-4 md:p-5 border border-primaryDark/20 shadow-sm mb-5">
-                <h4 class="text-lg font-black mb-3">SEL 說明影片</h4>
-                <div class="aspect-video overflow-hidden rounded-2xl bg-black">
-                    <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/NkyiPOAohLc" title="SEL 說明影片" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="video-card">
+                <h4 class="card-title">SEL 說明影片</h4>
+                <div class="video-wrap">
+                    <iframe src="https://www.youtube-nocookie.com/embed/NkyiPOAohLc" title="SEL 說明影片" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-sm font-black">
-                <span class="bg-white rounded-xl px-4 py-3 border border-primaryDark/20">自我覺察</span>
-                <span class="bg-white rounded-xl px-4 py-3 border border-primaryDark/20">合作溝通</span>
-                <span class="bg-white rounded-xl px-4 py-3 border border-primaryDark/20">問題解決</span>
-                <span class="bg-white rounded-xl px-4 py-3 border border-primaryDark/20">成果反思</span>
+            <div class="skill-grid">
+                <span>自我覺察</span>
+                <span>合作溝通</span>
+                <span>問題解決</span>
+                <span>成果反思</span>
             </div>
         </div>
     </section>
 
-    <section id="next" class="scroll-mt-24">
-        <h2 class="section-title text-2xl md:text-3xl font-black mb-6">四、後續行動建議</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white p-6 rounded-3xl shadow-sm border border-lineSoft">
-                <h3 class="text-lg font-black mb-3 text-textMain">短期任務</h3>
-                <ul class="space-y-3 text-textMuted">
-                    <li>✅ 補齊兒童新樂園比賽地圖與參觀地圖的截圖或展示影片。</li>
-                    <li>✅ 確認 Unity 多人連線模板是否能穩定匯入與執行。</li>
-                    <li>✅ 建立課程測試紀錄與問題修正清單。</li>
+    <section id="next" class="section-block">
+        <div class="section-head">
+            <div class="section-number">04</div>
+            <h2 class="section-title">後續行動建議</h2>
+        </div>
+        <div class="card-grid two">
+            <article class="feature-card">
+                <h3 class="card-title">短期任務</h3>
+                <ul class="clean-list">
+                    <li><span class="num-chip">✓</span><span>補齊兒童新樂園比賽地圖與參觀地圖的截圖或展示影片。</span></li>
+                    <li><span class="num-chip">✓</span><span>確認 Unity 多人連線模板是否能穩定匯入與執行。</span></li>
+                    <li><span class="num-chip">✓</span><span>建立課程測試紀錄與問題修正清單。</span></li>
                 </ul>
-            </div>
-            <div class="bg-white p-6 rounded-3xl shadow-sm border border-lineSoft">
-                <h3 class="text-lg font-black mb-3 text-textMain">中期任務</h3>
-                <ul class="space-y-3 text-textMuted">
-                    <li>🔄 完成 Unity 課程試教腳本與教師操作手冊。</li>
-                    <li>🔄 將 SEL 任務單、學生反思單與成果發表流程納入教材。</li>
+            </article>
+            <article class="feature-card">
+                <h3 class="card-title">中期任務</h3>
+                <ul class="clean-list">
+                    <li><span class="num-chip">↻</span><span>完成 Unity 課程試教腳本與教師操作手冊。</span></li>
+                    <li><span class="num-chip">↻</span><span>將 SEL 任務單、學生反思單與成果發表流程納入教材。</span></li>
                 </ul>
-            </div>
+            </article>
         </div>
     </section>
 
 </main>
 
-<footer class="bg-primary text-textMain py-10 mt-12 text-center border-t-4 border-primaryDark">
-    <div class="max-w-6xl mx-auto px-6">
-        <a href="#" class="bg-white hover:bg-secondary transition-colors px-4 py-2 rounded-full text-sm font-black border border-primaryDark/20">↑ 回到最上方</a>
+<footer>
+    <div class="site-shell text-center">
+        <a href="#" class="button-link back-top">↑ 回到最上方</a>
     </div>
 </footer>
 

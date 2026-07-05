@@ -12,8 +12,8 @@
             extend: {
                 colors: {
                     primary: '#FFD400',   // 主色：黃色
-                    secondary: '#FFF4A3', // 淡黃色
-                    accent: '#FFF9D6',    // 淡黃白背景
+                    secondary: '#FFEA61', // 黃色卡片
+                    accent: '#FFD400',    // 黃底
                     textMain: '#000000',  // 主要文字：黑色
                     textMuted: '#000000', // 次要文字：黑色
                     warm: '#FFD400',
@@ -87,6 +87,91 @@
             text-decoration: underline;
         }
         iframe { color-scheme: light; }
+
+
+        /* === 黃底 / 黑字最終覆蓋設定 === */
+        :root {
+            --main-yellow: #FFD400;
+            --card-yellow: #FFEA61;
+            --soft-yellow: #FFF4A3;
+            --black: #000000;
+        }
+
+        html,
+        body {
+            background: #FFD400 !important;
+            color: #000000 !important;
+        }
+
+        body {
+            background-image: none !important;
+        }
+
+        *,
+        *::before,
+        *::after {
+            color: #000000 !important;
+            border-color: #000000 !important;
+        }
+
+        header,
+        footer,
+        nav,
+        .glass-nav,
+        .bg-primary {
+            background: #FFD400 !important;
+            color: #000000 !important;
+        }
+
+        main,
+        section {
+            background: transparent !important;
+        }
+
+        article,
+        .bg-white,
+        .bg-secondary,
+        .bg-accent,
+        .rounded-3xl,
+        .rounded-2xl,
+        .rounded-xl,
+        .rounded-lg,
+        .rounded-full {
+            background-color: #FFEA61 !important;
+            color: #000000 !important;
+            border: 2px solid #000000 !important;
+        }
+
+        .pattern-card {
+            background-color: #FFD400 !important;
+            background-image:
+                linear-gradient(135deg, rgba(0,0,0,.08) 25%, transparent 25%, transparent 50%, rgba(0,0,0,.08) 50%, rgba(0,0,0,.08) 75%, transparent 75%, transparent) !important;
+        }
+
+        .section-title::after {
+            background: #000000 !important;
+            border-color: #000000 !important;
+        }
+
+        a,
+        a:visited,
+        a:hover,
+        a:active {
+            color: #000000 !important;
+        }
+
+        .shadow-sm,
+        .shadow-md,
+        .shadow-soft,
+        .hover\:shadow-soft:hover {
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 1) !important;
+        }
+
+        iframe {
+            border: 2px solid #000000 !important;
+            background: #000000 !important;
+        }
+
     </style>
 </head>
 <body class="antialiased leading-relaxed">
